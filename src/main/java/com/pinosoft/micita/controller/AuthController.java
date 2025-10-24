@@ -51,6 +51,7 @@ public class AuthController {
 	    }
 	    
 	    
+	    
 	    @PutMapping("/usuario/{id}")
 	    public ResponseEntity<Usuario> actualizarUsuario(
 	            @PathVariable Long id, 
