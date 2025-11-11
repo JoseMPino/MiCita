@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.time.LocalDateTime;
@@ -27,11 +28,11 @@ public class CategoriaNegocio {
 	    
 
 	    @OneToMany(mappedBy = "categoriaNegocio")
-	    @JsonIgnoreProperties({"categoriaNegocio"})
+	    @JsonIgnore
 	    private Set<Negocio> negocios;
 
 	    @OneToMany(mappedBy = "categoriaNegocio")
-	    @JsonIgnoreProperties({"categoriaNegocio"})
+	    @JsonIgnore
 	    private Set<CategoriaServicio> categoriasServicio;
 
 }

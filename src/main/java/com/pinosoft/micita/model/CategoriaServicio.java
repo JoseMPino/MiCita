@@ -2,6 +2,8 @@ package com.pinosoft.micita.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -26,11 +28,11 @@ public class CategoriaServicio {
 	   
 	    @ManyToOne(fetch = FetchType.LAZY)
 	    @JoinColumn(name = "categoria_negocio_id", nullable = false)
-	    @JsonIgnoreProperties({"categoriasServicio", "negocios"}) // Previene ciclos infinitos en JSON
+	    @JsonIgnore
 	    private CategoriaNegocio categoriaNegocio;
 
 
 	    @OneToMany(mappedBy = "categoriaServicio")
-	    @JsonIgnoreProperties({"categoriaServicio"})
+	    @JsonIgnore
 	    private Set<Servicio> servicios;
 }
